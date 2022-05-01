@@ -5,9 +5,10 @@ import cgi # URL의 query string을 입력 값으로 웹애플리케이션으로
 form = cgi.FieldStorage()
 if 'id' in form:
   pageId = form["id"].value
+  description = open('data/'+pageId, 'r').read()  #data/ 폴더 아래 HTML , CSS, JavaScript 파일을 넣어두면 읽어온다.
 else:
   pageId = 'welcome'
-  description = 'hello, web'  # 이라는 것이 id 값이 있는 경우에는 처리되지 않기 때문에 오류가 생긴다.
+  description = 'hello, web'  # description 이라는 것이 id 값이 있는 경우에는 처리되지 않기 때문에 오류가 생긴다.
 print('''<!doctype html>
 <html>
 <head>
