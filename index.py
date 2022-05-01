@@ -3,7 +3,10 @@ print("Content-Type: text/html")    # HTML is following
 print()
 import cgi # URL의 query string을 입력 값으로 웹애플리케이션으로 끌어오는 방법
 form = cgi.FieldStorage()
-pageId = form["id"].value
+if 'id' in form:
+  pageId = form["id"].value
+else:
+  pageId = 'welcome'
 print('''<!doctype html>
 <html>
 <head>
